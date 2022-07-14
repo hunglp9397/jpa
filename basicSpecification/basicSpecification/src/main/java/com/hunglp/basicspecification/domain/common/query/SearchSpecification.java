@@ -28,7 +28,7 @@ public class SearchSpecification<T> implements Specification<T> {
 
         List<Order> orders = new ArrayList<>();
         for(SortRequest sort : this.searchRequest.getSorts()){
-            orders.add(sort.getSortDirection().build(root,criteriaBuilder,sort));
+            orders.add(sort.getDirection().build(root,criteriaBuilder,sort));
         }
 
         query.orderBy(orders);

@@ -18,7 +18,7 @@ public class OSService {
 
     public Page<OperatingSystem> searchOperatingSystem(SearchRequest request){
         SearchSpecification<OperatingSystem> specification = new SearchSpecification<>(request);
-        Pageable pageable = SearchSpecification.getPageable(request.getPage(), request.getSize());
+        Pageable pageable = SearchSpecification.getPageable(request.getPage() != null ? request.getPage() : 0, request.getSize() != null ? request.getSize() : 20);
         return osRepository.findAll(specification, pageable);
     }
 
